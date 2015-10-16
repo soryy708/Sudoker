@@ -29,6 +29,7 @@ namespace Sudoker
 
 		bool isValid() const; // runs on the whole grid, checking if every position is valid
 		bool isValid(const Grid<9, 9>::Position position) const; // runs on a particular position in the grid, checking if valid
+		bool isValid(const Grid<9, 9>::Position position, const int value) const; // returns true if placing value in position is valid
 		bool isFull() const; // returns true if grid contains no zeros (puzzle is solved)
 	};
 }
