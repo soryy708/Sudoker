@@ -33,16 +33,16 @@ namespace Sudoker
 	private:
 		int _content[w*h];
 
-		int index() const
-		{
-			return x + (y * w);
-		}
-
 	public:
 		struct Position
 		{
 			int x;
 			int y;
+
+			int index() const
+			{
+				return x + (y * w);
+			}
 
 			bool operator==(const Position& other) const
 			{
