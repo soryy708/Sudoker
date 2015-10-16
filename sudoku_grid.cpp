@@ -47,40 +47,7 @@ namespace Sudoker
 
 	bool SudokuGrid::isValid(const Grid<9, 9>::Position position) const
 	{
-		if (get(position) != 0)
-		{
-			int x;
-			int y;
-
-			for (x = 0; x < width; ++x) // test row
-			{
-				if (get(this->position(x, position.y)) == get(position) && this->position(x, position.y) != position)
-				{
-					return false;
-				}
-			}
-			for (y = 0; y < height; ++y) // test column
-			{
-				if (get(this->position(position.x, y)) == get(position) && this->position(position.x, y) != position)
-				{
-					return false;
-				}
-			}
-			for (x = 0; x < 3; ++x) // test square
-			{
-				for (y = 0; y < 3; ++y)
-				{
-					const int square_x = position.x / 3;
-					const int square_y = position.y / 3;
-					const auto sample_position = this->position(square_x * 3 + x, square_y * 3 + y);
-					if (sample_position != position && get(sample_position) == get(position))
-					{
-						return false;
-					}
-				}
-			}
-		}
-		return true;
+		return isValid(position, get(position));
 	}
 	
 	bool SudokuGrid::isValid(const Grid<9, 9>::Position position, const int value) const
