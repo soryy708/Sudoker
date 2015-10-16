@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+# MSVC files
+*.idb
+*.log
+*.pdb
+*.tlog
+*.lastbuildstate
+*.vcxproj
+*.vcxproj.filters
