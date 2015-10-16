@@ -23,12 +23,12 @@
 namespace Sudoker
 {
 	// A 2D matrix of fixed size, defined by w(idth) and h(eight)
-	template<const int w, const int h>
+	template<const unsigned int w, const unsigned int h>
 	class Grid
 	{
 	public:
-		const int width = w;
-		const int height = h;
+		const unsigned int width = w;
+		const unsigned int height = h;
 
 	private:
 		int _content[w*h];
@@ -36,10 +36,10 @@ namespace Sudoker
 	public:
 		struct Position
 		{
-			int x;
-			int y;
+			unsigned int x;
+			unsigned int y;
 
-			int index() const
+			unsigned int index() const
 			{
 				return x + (y * w);
 			}
@@ -61,21 +61,21 @@ namespace Sudoker
 				return true;
 			}
 
-			Position(const int x, const int y) :
+			Position(const unsigned int x, const unsigned int y) :
 				x(x), y(y)
 			{
-				if (x < 0 || x > w)
+				if (x > w)
 				{
 					throw(std::invalid_argument("Grid::Position::Position(x)"));
 				}
-				if (y < 0 || y > h)
+				if (y > h)
 				{
 					throw(std::invalid_argument("Grid::Position::Position(y)"));
 				}
 			}
 		};
 
-		Position position(const int x, const int y) const { return Position(x, y); } // position factory
+		Position position(const unsigned int x, const unsigned int y) const { return Position(x, y); } // position factory
 		int get(const Position position) const { return _content[position.index()]; } // get value in position
 		void set(const Position position, const int value) { _content[position.index()] = value; } // set value to position
 

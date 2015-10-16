@@ -32,9 +32,9 @@ namespace Sudoker
 
 	bool SudokuGrid::isValid() const
 	{
-		for (int y = 0; y < height; ++y)
+		for (unsigned int y = 0; y < height; ++y)
 		{
-			for (int x = 0; x < width; ++x)
+			for (unsigned int x = 0; x < width; ++x)
 			{
 				if ((isValid(position(x, y)) == false) && (get(position(x, y)) != 0))
 				{
@@ -54,8 +54,8 @@ namespace Sudoker
 	{
 		if (value != 0)
 		{
-			int x;
-			int y;
+			unsigned int x;
+			unsigned int y;
 
 			for (x = 0; x < width; ++x) // test row
 			{
@@ -90,9 +90,9 @@ namespace Sudoker
 
 	bool SudokuGrid::isFull() const
 	{
-		for (int y = 0; y < height; ++y)
+		for (unsigned int y = 0; y < height; ++y)
 		{
-			for (int x = 0; x < width; ++x)
+			for (unsigned int x = 0; x < width; ++x)
 			{
 				if (get(position(x, y)) == 0)
 				{
