@@ -20,7 +20,7 @@ namespace Sudoker
 {
 	void SudokuGrid::set(const Grid<9, 9>::Position position, const int value)
 	{
-		if (value < 0 || value > 9)
+		if (value > 9)
 		{
 			throw(std::invalid_argument("SudokuGrid::set(value)"));
 		}
