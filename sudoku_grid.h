@@ -32,6 +32,8 @@ namespace Sudoker
 		bool isValid(const Grid<9, 9>::Position position, const int value) const; // returns true if placing value in position is valid
 		bool isFull() const; // returns true if grid contains no zeros (puzzle is solved)
 	};
+
+	class UniquelySolvableSudokuGrid : public SudokuGrid {};
 }
 
 #endif

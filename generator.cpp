@@ -2,9 +2,9 @@
 
 namespace Sudoker
 {
-	SudokuGrid generateUnique()
+	UniquelySolvableSudokuGrid generateUnique()
 	{
-		SudokuGrid grid;
+		UniquelySolvableSudokuGrid grid;
 
 		// TODO
 

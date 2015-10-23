@@ -5,7 +5,7 @@
 
 namespace Sudoker
 {
-	SudokuGrid generateUnique();
+	UniquelySolvableSudokuGrid generateUnique();
 }
 
 #endif
