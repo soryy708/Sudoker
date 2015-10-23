@@ -27,9 +27,9 @@ namespace Sudoker
 
 		BanArray()
 		{
-			for (auto i : array)
+			for (int i = 0; i < 10; ++i)
 			{
-				i = false;
+				array[i] = false;
 			}
 		}
 	};
