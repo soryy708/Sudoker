@@ -18,5 +18,6 @@
 #define SUDOKER_H_INCLUDED
 
 #include <Sudoker/sudoku_grid.h>
+#include <Sudoker/generator.h>
 
 #endif
