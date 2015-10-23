@@ -75,8 +75,8 @@ namespace Sudoker
 			{
 				for (y = 0; y < 3; ++y)
 				{
-					const int square_x = position.x / 3;
-					const int square_y = position.y / 3;
+					const unsigned int square_x = position.x / 3;
+					const unsigned int square_y = position.y / 3;
 					const auto sample_position = this->position(square_x * 3 + x, square_y * 3 + y);
 					if (sample_position != position && get(sample_position) == value)
 					{
