@@ -19,5 +19,6 @@
 
 #include <Sudoker/sudoku_grid.h>
 #include <Sudoker/generator.h>
+#include <Sudoker/solver.h>
 
 #endif
