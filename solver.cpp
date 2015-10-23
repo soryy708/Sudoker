@@ -60,6 +60,16 @@ namespace Sudoker
 						{
 							ban.array[solution.get(solution.position(x, test_y))] = true;
 						}
+						for (test_x = 0; test_x < 3; ++test_x) // test square
+						{
+							for (test_y = 0; test_y < 3; ++test_y)
+							{
+								const unsigned int square_x = x / 3;
+								const unsigned int square_y = y / 3;
+								const auto sample_position = solution.position(square_x * 3 + test_x, square_y * 3 + test_y);
+								ban.array[solution.get(sample_position)] = true;
+							}
+						}
 
 						int unique = ban.uniqueUnbanned();
 						if (unique != 0)
