@@ -80,6 +80,14 @@ namespace Sudoker
 		void set(const Position position, const int value) { _content[position.index()] = value; } // set value to position
 
 		int operator[](const Position position) const { return get(position); }
+		Grid<w, h>& operator=(Grid<w, h> other)
+		{
+			for (int i = 0; i < w*h; ++i)
+			{
+				_content[i] = other._content[i];
+			}
+			return *this;
+		}
 
 		Grid()
 		{
