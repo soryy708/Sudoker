@@ -88,6 +88,20 @@ namespace Sudoker
 			}
 			return *this;
 		}
+		bool operator==(const Grid<w, h>& other) const
+		{
+			for (unsigned int y = 0; y < h; ++y)
+			{
+				for (unsigned int x = 0; x < w; ++x)
+				{
+					if (get(Position(x, y)) != other.get(Position(x, y)))
+					{
+						return false;
+					}
+				}
+			}
+			return true;
+		}
 
 		Grid()
 		{
