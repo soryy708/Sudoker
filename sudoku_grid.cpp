@@ -15,6 +15,7 @@
  *	along with this program.If not, see <http://www.gnu.org/licenses/>.
  */
 #include "sudoku_grid.h"
+#include "solver.h"
 
 namespace Sudoker
 {
@@ -99,6 +100,15 @@ namespace Sudoker
 					return false;
 				}
 			}
+		}
+		return true;
+	}
+
+	bool isUniquelySolvable(const SudokuGrid grid)
+	{
+		if (solve(*(UniquelySolvableSudokuGrid*)&grid) == grid)
+		{
+			return false;
 		}
 		return true;
 	}

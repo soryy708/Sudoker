@@ -34,6 +34,8 @@ namespace Sudoker
 	};
 
 	class UniquelySolvableSudokuGrid : public SudokuGrid {};
+
+	bool isUniquelySolvable(const SudokuGrid);
 }
 
 #endif
