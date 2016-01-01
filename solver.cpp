@@ -91,7 +91,7 @@ namespace Sudoker
 
 		if (solution.isFull() == false)
 		{
-			throw(std::runtime_error("Grid has no unique solution"));
+			return grid;
 		}
 
 		return solution;

@@ -5,7 +5,7 @@
 
 namespace Sudoker
 {
-	SudokuGrid solve(const UniquelySolvableSudokuGrid grid);
+	SudokuGrid solve(const UniquelySolvableSudokuGrid grid); // returns unchanged grid if not uniquely solvable
 }
 
 #endif
