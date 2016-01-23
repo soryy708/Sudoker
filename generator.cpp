@@ -1,4 +1,6 @@
+#include <vector>
 #include "generator.h"
+#include "solver.h"
 
 namespace Sudoker
 {
@@ -66,12 +68,66 @@ namespace Sudoker
 		}
 	}
 
+	struct RemovedNumber
+	{
+		int value;
+		SudokuGrid::Position position;
+
+		RemovedNumber(const int number, SudokuGrid::Position position) :
+			value(number),
+			position(position)
+		{
+		}
+	};
+	void removeNumbers(SudokuGrid& grid, const Difficulty difficulty)
+	{
+		const int grid_size = 9 * 9;
+		std::vector<RemovedNumber> removed;
+
+		int fails = 0;
+		for (int i = 0; i < grid_size - difficulty; ++i)
+		{
+			if (fails >= grid_size / 2)
+			{
+				const SudokuGrid::Position pos(removed.back().position);
+				const int value = removed.back().value;
+				removed.pop_back();
+				grid.set(pos, value);
+				--i;
+				fails = 0;
+			}
+			else
+			{
+				const SudokuGrid::Position pos(rand() % grid.width, rand() % grid.height);
+				const int value = grid.get(pos);
+				if (value == 0)
+				{
+					--i;
+					continue;
+				}
+				grid.set(pos, 0);
+				if (grid == solve(*((UniquelySolvableSudokuGrid*)&grid)))
+				{
+					grid.set(pos, value);
+					--i;
+					++fails;
+				}
+				else
+				{
+					removed.push_back(RemovedNumber(value, pos));
+					fails = 0;
+				}
+			}
+		}
+	}
+
 	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty)
 	{
 		UniquelySolvableSudokuGrid grid;
 
 		fillGrid(grid);
 		randomizeNumbers(grid);
+		removeNumbers(grid, difficulty);
 		switch (rand() % 3)
 		{
 		case(0) :
