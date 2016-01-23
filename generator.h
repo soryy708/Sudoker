@@ -12,7 +12,7 @@ namespace Sudoker
 		DIFFICULTY_HARD = 17
 	};
 
-	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty);
+	UniquelySolvableSudokuGrid generateUnique(const Difficulty difficulty);
 }
 
 #endif

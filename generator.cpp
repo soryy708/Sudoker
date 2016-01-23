@@ -121,7 +121,7 @@ namespace Sudoker
 		}
 	}
 
-	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty)
+	UniquelySolvableSudokuGrid generateUnique(const Difficulty difficulty)
 	{
 		UniquelySolvableSudokuGrid grid;
 
