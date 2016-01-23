@@ -68,19 +68,20 @@ namespace Sudoker
 		}
 	}
 
-	struct RemovedNumber
-	{
-		int value;
-		SudokuGrid::Position position;
-
-		RemovedNumber(const int number, SudokuGrid::Position position) :
-			value(number),
-			position(position)
-		{
-		}
-	};
 	void removeNumbers(SudokuGrid& grid, const Difficulty difficulty)
 	{
+		struct RemovedNumber
+		{
+			int value;
+			SudokuGrid::Position position;
+
+			RemovedNumber(const int number, SudokuGrid::Position position) :
+				value(number),
+				position(position)
+			{
+			}
+		};
+
 		const int grid_size = 9 * 9;
 		std::vector<RemovedNumber> removed;
 
