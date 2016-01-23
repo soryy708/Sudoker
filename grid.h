@@ -103,6 +103,41 @@ namespace Sudoker
 			return true;
 		}
 
+		enum Flip
+		{
+			FLIP_HORIZONTALLY,
+			FLIP_VERTICALLY,
+			FLIP_BOTH
+		};
+		void flip(Flip flip)
+		{
+			Grid<w, h> temp;
+
+			for (unsigned int y = 0; y < h; ++y)
+			{
+				for (unsigned int x = 0; x < w; ++x)
+				{
+					switch (flip)
+					{
+					case(FLIP_HORIZONTALLY) :
+						temp.set(temp.position(x, y), get(position(x, h-y-1)));
+						break;
+					case(FLIP_VERTICALLY) :
+						temp.set(temp.position(x, y), get(position(w-x-1, y)));
+						break;
+					case(FLIP_BOTH) :
+						temp.set(temp.position(x, y), get(position(w-x-1, h-y-1)));
+						break;
+					}
+				}
+			}
+
+			for (unsigned int i = 0; i < w*h; ++i)
+			{
+				_content[i] = temp._content[i];
+			}
+		}
+
 		Grid()
 		{
 			for (int i = 0; i < w*h; ++i)
