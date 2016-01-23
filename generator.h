@@ -5,7 +5,14 @@
 
 namespace Sudoker
 {
-	UniquelySolvableSudokuGrid generateUnique();
+	enum Difficulty
+	{
+		DIFFICULTY_EASY = 51,
+		DIFFICULTY_MEDIUM = 47,
+		DIFFICULTY_HARD = 17
+	};
+
+	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty);
 }
 
 #endif

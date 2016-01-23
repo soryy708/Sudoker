@@ -2,7 +2,7 @@
 
 namespace Sudoker
 {
-	UniquelySolvableSudokuGrid generateUnique()
+	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty)
 	{
 		UniquelySolvableSudokuGrid grid;
 
