@@ -39,11 +39,39 @@ namespace Sudoker
 		}
 	}
 
+	void randomizeNumbers(SudokuGrid& grid)
+	{
+		const int table_size = 9;
+		int table[table_size];
+		for (unsigned int i = 0; i < table_size; ++i)
+		{
+			table[i] = (rand() % 9) + 1;
+			for (unsigned int j = 0; j < i; ++j)
+			{
+				if (table[j] == table[i])
+				{
+					--i;
+					break;
+				}
+			}
+		}
+
+		for (unsigned int y = 0; y < grid.height; ++y)
+		{
+			for (unsigned int x = 0; x < grid.width; ++x)
+			{
+				const SudokuGrid::Position pos(x, y);
+				grid.set(pos, table[grid.get(pos) - 1]);
+			}
+		}
+	}
+
 	UniquelySolvableSudokuGrid generateUnique(Difficulty difficulty)
 	{
 		UniquelySolvableSudokuGrid grid;
 
 		fillGrid(grid);
+		randomizeNumbers(grid);
 
 		return grid;
 	}
