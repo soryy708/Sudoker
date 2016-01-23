@@ -2,6 +2,8 @@
 
 namespace Sudoker
 {
+	SudokuGrid solve(const UniquelySolvableSudokuGrid grid)
+	{
 	struct BanArray
 	{
 		bool array[10];
@@ -34,8 +36,6 @@ namespace Sudoker
 		}
 	};
 
-	SudokuGrid solve(const UniquelySolvableSudokuGrid grid)
-	{
 		SudokuGrid solution = grid;
 
 		bool changed = false;
