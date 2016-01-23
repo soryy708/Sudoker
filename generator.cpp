@@ -72,6 +72,18 @@ namespace Sudoker
 
 		fillGrid(grid);
 		randomizeNumbers(grid);
+		switch (rand() % 3)
+		{
+		case(0) :
+			grid.flip(SudokuGrid::FLIP_HORIZONTALLY);
+			break;
+		case(1) :
+			grid.flip(SudokuGrid::FLIP_VERTICALLY);
+			break;
+		case(2) :
+			grid.flip(SudokuGrid::FLIP_BOTH);
+			break;
+		}
 
 		return grid;
 	}
