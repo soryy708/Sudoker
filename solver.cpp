@@ -4,37 +4,37 @@ namespace Sudoker
 {
 	SudokuGrid solve(const UniquelySolvableSudokuGrid grid)
 	{
-	struct BanArray
-	{
-		bool array[10];
-
-		int uniqueUnbanned()
+		struct BanArray
 		{
-			int unique = 0;
-			int count = 0;
-			for (int i = 0; i < 10; ++i)
+			bool array[10];
+
+			int uniqueUnbanned()
 			{
-				if (array[i] == false)
+				int unique = 0;
+				int count = 0;
+				for (int i = 0; i < 10; ++i)
 				{
-					unique = i;
-					++count;
+					if (array[i] == false)
+					{
+						unique = i;
+						++count;
+					}
+				}
+				if (count == 1)
+				{
+					return unique;
+				}
+				return 0;
+			}
+
+			BanArray()
+			{
+				for (int i = 0; i < 10; ++i)
+				{
+					array[i] = false;
 				}
 			}
-			if (count == 1)
-			{
-				return unique;
-			}
-			return 0;
-		}
-
-		BanArray()
-		{
-			for (int i = 0; i < 10; ++i)
-			{
-				array[i] = false;
-			}
-		}
-	};
+		};
 
 		SudokuGrid solution = grid;
 
